@@ -599,4 +599,381 @@ placeholder="Application / Case Number डालें"
 </div>
 
 <div class="stage">
-<strong>
+<strong>वर्ष:</strong>
+<span id="displayYear"></span>
+</div>
+
+<div class="stage">
+<strong>Case / Application No.:</strong>
+<span id="displayNumber"></span>
+</div>
+
+
+<div class="stage">
+✅ आवेदन जमा
+</div>
+
+<div class="stage">
+🟡 RSI
+</div>
+
+<div class="stage">
+⏳ CI
+</div>
+
+<div class="stage">
+⏳ CO
+</div>
+
+<div class="current" id="currentStatus">
+📍 वर्तमान स्थिति: RSI के पास लंबित
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script>
+
+let selectedLandType = "";
+let selectedApplicationType = "";
+
+
+/* LAND FORM */
+
+function openLandForm(type){
+
+selectedLandType = type;
+
+document.getElementById("landModal").style.display="flex";
+
+if(type==="register"){
+
+document.getElementById("landTitle").innerText =
+"रजिस्टर-II देखें";
+
+}else{
+
+document.getElementById("landTitle").innerText =
+"खाता एवं रजिस्टर-II देखें";
+
+}
+
+}
+
+
+function closeLandForm(){
+
+document.getElementById("landModal").style.display="none";
+
+}
+
+
+/* DROPDOWNS */
+
+function loadCircle(){
+
+let district =
+document.getElementById("district").value;
+
+let circle =
+document.getElementById("circle");
+
+circle.innerHTML =
+'<option value="">Please Select</option>';
+
+if(district){
+
+circle.innerHTML +=
+'<option>'+district+' Circle</option>';
+
+circle.innerHTML +=
+'<option>'+district+' Rural</option>';
+
+}
+
+document.getElementById("halka").innerHTML =
+'<option value="">Please Select</option>';
+
+document.getElementById("mauza").innerHTML =
+'<option value="">Please Select</option>';
+
+}
+
+
+function loadHalka(){
+
+let circle =
+document.getElementById("circle").value;
+
+let halka =
+document.getElementById("halka");
+
+halka.innerHTML =
+'<option value="">Please Select</option>';
+
+if(circle){
+
+halka.innerHTML +=
+'<option>हल्का 01</option>';
+
+halka.innerHTML +=
+'<option>हल्का 02</option>';
+
+halka.innerHTML +=
+'<option>हल्का 03</option>';
+
+}
+
+document.getElementById("mauza").innerHTML =
+'<option value="">Please Select</option>';
+
+}
+
+
+function loadMauza(){
+
+let halka =
+document.getElementById("halka").value;
+
+let mauza =
+document.getElementById("mauza");
+
+mauza.innerHTML =
+'<option value="">Please Select</option>';
+
+if(halka){
+
+mauza.innerHTML +=
+'<option>मौजा 01</option>';
+
+mauza.innerHTML +=
+'<option>मौजा 02</option>';
+
+mauza.innerHTML +=
+'<option>मौजा 03</option>';
+
+}
+
+}
+
+
+/* LAND SEARCH */
+
+function searchLand(){
+
+let district =
+document.getElementById("district").value;
+
+let circle =
+document.getElementById("circle").value;
+
+let halka =
+document.getElementById("halka").value;
+
+let mauza =
+document.getElementById("mauza").value;
+
+let captcha =
+document.getElementById("captchaInput").value.trim();
+
+
+if(!district){
+
+alert("कृपया जिला चुनें।");
+return;
+
+}
+
+if(!circle){
+
+alert("कृपया अंचल चुनें।");
+return;
+
+}
+
+if(!halka){
+
+alert("कृपया हल्का चुनें।");
+return;
+
+}
+
+if(!mauza){
+
+alert("कृपया मौजा चुनें।");
+return;
+
+}
+
+if(!captcha){
+
+alert("कृपया सुरक्षा कोड डालें।");
+return;
+
+}
+
+
+document.getElementById("landResult").style.display="block";
+
+document.getElementById("landResultText").innerText =
+"जिला: "+district+
+" | अंचल: "+circle+
+" | हल्का: "+halka+
+" | मौजा: "+mauza;
+
+}
+
+
+/* ONLINE APPLICATION */
+
+function onlineApplication(){
+
+alert(
+"ऑनलाइन आवेदन सुविधा जल्द उपलब्ध होगी।"
+);
+
+}
+
+
+/* APPLICATION STATUS */
+
+function openStatus(){
+
+document.getElementById("statusModal").style.display="flex";
+
+}
+
+
+function closeStatus(){
+
+document.getElementById("statusModal").style.display="none";
+
+}
+
+
+/* MUTATION / SUDHAR */
+
+function openApplication(type){
+
+selectedApplicationType = type;
+
+document.getElementById("statusModal").style.display="none";
+
+document.getElementById("applicationModal").style.display="flex";
+
+document.getElementById("applicationTitle").innerText =
+type+" आवेदन स्थिति";
+
+document.getElementById("statusResult").style.display="none";
+
+document.getElementById("applicationYear").value="";
+
+document.getElementById("applicationNumber").value="";
+
+}
+
+
+/* CLOSE */
+
+function closeApplication(){
+
+document.getElementById("applicationModal").style.display="none";
+
+}
+
+
+/* CHECK STATUS */
+
+function checkStatus(){
+
+let year =
+document.getElementById("applicationYear").value;
+
+let number =
+document.getElementById("applicationNumber").value.trim();
+
+
+if(!year){
+
+alert("कृपया वर्ष चुनें।");
+return;
+
+}
+
+if(!number){
+
+alert("कृपया Application / Case Number डालें।");
+return;
+
+}
+
+
+document.getElementById("displayType").innerText =
+" "+selectedApplicationType;
+
+document.getElementById("displayYear").innerText =
+" "+year;
+
+document.getElementById("displayNumber").innerText =
+" "+number;
+
+
+document.getElementById("statusResult").style.display="block";
+
+
+if(selectedApplicationType==="Sudhar"){
+
+document.getElementById("currentStatus").innerText =
+"📍 वर्तमान स्थिति: RSI के पास लंबित";
+
+}else{
+
+document.getElementById("currentStatus").innerText =
+"📍 वर्तमान स्थिति: आवेदन प्रक्रिया में";
+
+}
+
+}
+
+
+/* OUTSIDE CLICK */
+
+window.onclick=function(event){
+
+let landModal =
+document.getElementById("landModal");
+
+let statusModal =
+document.getElementById("statusModal");
+
+let applicationModal =
+document.getElementById("applicationModal");
+
+
+if(event.target===landModal){
+
+landModal.style.display="none";
+
+}
+
+if(event.target===statusModal){
+
+statusModal.style.display="none";
+
+}
+
+if(event.target===applicationModal){
+
+applicationModal.style.display="none";
+
+}
+
+};
+
+</script>
+
+</body>
+</html>
