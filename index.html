@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>LandBhoomi - Jharkhand Land Records</title>
 
 <style>
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -18,62 +20,78 @@ body {
   color: #17351f;
 }
 
+/* HEADER */
+
 .header {
   background: #176b35;
   color: white;
-  padding: 22px 15px;
+  padding: 25px 15px;
   text-align: center;
 }
 
 .header h1 {
-  font-size: 30px;
-  margin-bottom: 6px;
+  font-size: 32px;
+  margin-bottom: 7px;
 }
 
 .header p {
-  font-size: 14px;
+  font-size: 15px;
 }
+
+/* NOTICE */
 
 .notice {
   background: #fff3cd;
   color: #664d03;
-  padding: 12px;
+  padding: 13px;
   text-align: center;
-  font-size: 13px;
+  font-size: 14px;
   border-bottom: 1px solid #e5d18b;
 }
 
+/* MAIN */
+
 .container {
-  max-width: 900px;
-  margin: 25px auto;
+  max-width: 950px;
+  margin: 28px auto;
   padding: 0 15px;
 }
 
+/* WELCOME */
+
 .welcome {
   background: white;
-  padding: 22px;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
   text-align: center;
-  margin-bottom: 22px;
+  margin-bottom: 25px;
 }
 
 .welcome h2 {
   color: #176b35;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  font-size: 30px;
 }
+
+.welcome p {
+  color: #444;
+  font-size: 17px;
+}
+
+/* OPTIONS */
 
 .options {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
+  gap: 18px;
 }
 
 .option {
   background: white;
   border: 1px solid #d9e3dc;
-  border-radius: 12px;
-  padding: 22px 15px;
+  border-radius: 14px;
+  padding: 28px 15px;
   text-align: center;
   cursor: pointer;
   transition: 0.2s;
@@ -86,71 +104,86 @@ body {
 }
 
 .icon {
-  font-size: 32px;
-  margin-bottom: 10px;
+  font-size: 35px;
+  margin-bottom: 12px;
 }
 
 .option h3 {
   color: #176b35;
-  margin-bottom: 7px;
+  margin-bottom: 8px;
+  font-size: 22px;
 }
 
 .option p {
   color: #666;
-  font-size: 13px;
+  font-size: 14px;
 }
 
+/* FOOTER */
+
 .footer {
-  margin-top: 35px;
+  margin-top: 40px;
   background: #17351f;
   color: white;
   text-align: center;
-  padding: 20px 15px;
-  font-size: 13px;
+  padding: 22px 15px;
+  font-size: 14px;
 }
+
+/* MODAL */
 
 .modal {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.55);
+  background: rgba(0,0,0,0.58);
   justify-content: center;
   align-items: center;
   padding: 15px;
+  z-index: 1000;
 }
 
 .modal-box {
   background: white;
   width: 100%;
-  max-width: 500px;
-  border-radius: 14px;
-  padding: 25px;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 15px;
+  padding: 26px;
+  position: relative;
 }
 
 .modal-box h2 {
   color: #176b35;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
   text-align: center;
+  font-size: 27px;
 }
 
 .close {
-  float: right;
-  font-size: 25px;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 28px;
   cursor: pointer;
+  color: #17351f;
 }
+
+/* STATUS BUTTONS */
 
 .status-buttons {
   display: grid;
-  gap: 12px;
+  gap: 14px;
 }
 
 .status-btn {
-  padding: 16px;
+  padding: 17px;
   border: none;
-  border-radius: 9px;
+  border-radius: 10px;
   background: #176b35;
   color: white;
-  font-size: 16px;
+  font-size: 18px;
   cursor: pointer;
 }
 
@@ -158,139 +191,386 @@ body {
   background: #105326;
 }
 
+/* FORM */
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-top: 12px;
+  color: #17351f;
+}
+
+select,
 input {
   width: 100%;
   padding: 14px;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  margin: 12px 0;
+  border-radius: 9px;
+  margin-top: 8px;
   font-size: 16px;
+  background: white;
 }
 
 .search-btn {
   width: 100%;
-  padding: 14px;
+  padding: 15px;
   border: none;
-  border-radius: 8px;
+  border-radius: 9px;
   background: #176b35;
   color: white;
-  font-size: 16px;
+  font-size: 17px;
   cursor: pointer;
+  margin-top: 15px;
 }
 
+.search-btn:hover {
+  background: #105326;
+}
+
+/* RESULT */
+
 .result {
-  margin-top: 18px;
+  margin-top: 20px;
   background: #f1f8f3;
-  border-radius: 10px;
-  padding: 15px;
+  border-radius: 11px;
+  padding: 18px;
   display: none;
 }
 
-.stage {
-  padding: 10px;
-  margin: 7px 0;
-  background: white;
-  border-radius: 7px;
-  border-left: 4px solid #176b35;
+.result-title {
+  color: #176b35;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 12px;
 }
 
+.info-row {
+  background: white;
+  padding: 10px;
+  border-radius: 7px;
+  margin: 6px 0;
+}
+
+.stage {
+  padding: 13px;
+  margin: 8px 0;
+  background: white;
+  border-radius: 8px;
+  border-left: 5px solid #176b35;
+}
+
+.current-status {
+  margin-top: 15px;
+  padding: 14px;
+  background: #e8f5eb;
+  border-radius: 9px;
+  color: #176b35;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* MOBILE */
+
 @media (max-width: 600px) {
+
   .options {
     grid-template-columns: 1fr;
   }
 
   .header h1 {
+    font-size: 27px;
+  }
+
+  .welcome h2 {
     font-size: 26px;
   }
+
+  .option h3 {
+    font-size: 20px;
+  }
+
 }
+
 </style>
 </head>
 
+
 <body>
 
+<!-- HEADER -->
+
 <header class="header">
+
   <h1>🌿 LandBhoomi</h1>
-  <p>Jharkhand Land Records & Application Status</p>
+
+  <p>
+    Jharkhand Land Records & Application Status
+  </p>
+
 </header>
 
+
+<!-- NOTICE -->
+
 <div class="notice">
+
   यह पोर्टल LandBhoomi है। यह सरकारी वेबसाइट नहीं है।
+
 </div>
+
+
+<!-- MAIN -->
 
 <main class="container">
 
+
+  <!-- WELCOME -->
+
   <section class="welcome">
+
     <h2>स्वागत है</h2>
-    <p>भूमि रिकॉर्ड एवं आवेदन संबंधी सेवाओं के लिए नीचे दिए गए विकल्प चुनें।</p>
+
+    <p>
+      भूमि रिकॉर्ड एवं आवेदन संबंधी सेवाओं के लिए नीचे दिए गए विकल्प चुनें।
+    </p>
+
   </section>
+
+
+  <!-- FOUR OPTIONS -->
 
   <section class="options">
 
-    <div class="option" onclick="showMessage('register')">
+
+    <!-- REGISTER II -->
+
+    <div
+      class="option"
+      onclick="showMessage('register')"
+    >
+
       <div class="icon">👁️</div>
+
       <h3>रजिस्टर-II देखें</h3>
-      <p>रजिस्टर-II से संबंधित जानकारी</p>
+
+      <p>
+        रजिस्टर-II से संबंधित जानकारी
+      </p>
+
     </div>
 
-    <div class="option" onclick="showMessage('khata')">
+
+    <!-- KHATA -->
+
+    <div
+      class="option"
+      onclick="showMessage('khata')"
+    >
+
       <div class="icon">📋</div>
+
       <h3>खाता एवं रजिस्टर-II देखें</h3>
-      <p>खाता एवं रजिस्टर-II जानकारी</p>
+
+      <p>
+        खाता एवं रजिस्टर-II जानकारी
+      </p>
+
     </div>
 
-    <div class="option" onclick="showMessage('online')">
+
+    <!-- ONLINE APPLICATION -->
+
+    <div
+      class="option"
+      onclick="showMessage('online')"
+    >
+
       <div class="icon">📝</div>
+
       <h3>ऑनलाइन आवेदन</h3>
-      <p>ऑनलाइन आवेदन से संबंधित सुविधा</p>
+
+      <p>
+        ऑनलाइन आवेदन से संबंधित सुविधा
+      </p>
+
     </div>
 
-    <div class="option" onclick="openStatus()">
+
+    <!-- APPLICATION STATUS -->
+
+    <div
+      class="option"
+      onclick="openStatus()"
+    >
+
       <div class="icon">📄</div>
+
       <h3>आवेदन स्थिति</h3>
-      <p>Mutation एवं Sudhar आवेदन की स्थिति</p>
+
+      <p>
+        Mutation एवं Sudhar आवेदन की स्थिति
+      </p>
+
     </div>
+
 
   </section>
 
 </main>
 
+
+<!-- FOOTER -->
+
 <footer class="footer">
-  <p>© 2026 LandBhoomi</p>
-  <p>Land Records & Application Status Portal</p>
+
+  <p>
+    © 2026 LandBhoomi
+  </p>
+
+  <p>
+    Land Records & Application Status Portal
+  </p>
+
 </footer>
 
-<!-- Status Modal -->
-<div class="modal" id="statusModal">
+
+<!-- APPLICATION STATUS MODAL -->
+
+<div
+  class="modal"
+  id="statusModal"
+>
 
   <div class="modal-box">
 
-    <span class="close" onclick="closeModal()">×</span>
+    <span
+      class="close"
+      onclick="closeModal()"
+    >
+      ×
+    </span>
 
-    <h2>आवेदन स्थिति</h2>
+    <h2>
+      आवेदन स्थिति
+    </h2>
+
 
     <div class="status-buttons">
 
-      <button class="status-btn" onclick="openApplication('Mutation')">
+
+      <button
+        class="status-btn"
+        onclick="openApplication('Mutation')"
+      >
+
         🔄 Mutation
+
       </button>
 
-      <button class="status-btn" onclick="openApplication('Sudhar')">
+
+      <button
+        class="status-btn"
+        onclick="openApplication('Sudhar')"
+      >
+
         📝 Sudhar
+
       </button>
+
 
     </div>
 
   </div>
+
 </div>
 
-<!-- Application Modal -->
-<div class="modal" id="applicationModal">
+
+<!-- APPLICATION SEARCH MODAL -->
+
+<div
+  class="modal"
+  id="applicationModal"
+>
 
   <div class="modal-box">
 
-    <span class="close" onclick="closeApplication()">×</span>
+    <span
+      class="close"
+      onclick="closeApplication()"
+    >
+      ×
+    </span>
 
-    <h2 id="applicationTitle">Application Status</h2>
+
+    <h2 id="applicationTitle">
+      आवेदन स्थिति
+    </h2>
+
+
+    <!-- YEAR -->
+
+    <label for="applicationYear">
+      वर्ष चुनें
+    </label>
+
+    <select id="applicationYear">
+
+      <option value="">
+        वर्ष चुनें
+      </option>
+
+      <option value="2026">
+        2026
+      </option>
+
+      <option value="2025">
+        2025
+      </option>
+
+      <option value="2024">
+        2024
+      </option>
+
+      <option value="2023">
+        2023
+      </option>
+
+      <option value="2022">
+        2022
+      </option>
+
+      <option value="2021">
+        2021
+      </option>
+
+      <option value="2020">
+        2020
+      </option>
+
+      <option value="2019">
+        2019
+      </option>
+
+      <option value="2018">
+        2018
+      </option>
+
+      <option value="2017">
+        2017
+      </option>
+
+      <option value="2016">
+        2016
+      </option>
+
+    </select>
+
+
+    <!-- APPLICATION NUMBER -->
+
+    <label for="applicationNumber">
+      Application / Case Number
+    </label>
 
     <input
       type="text"
@@ -298,100 +578,394 @@ input {
       placeholder="Application / Case Number डालें"
     >
 
-    <button class="search-btn" onclick="checkStatus()">
+
+    <!-- SEARCH -->
+
+    <button
+      class="search-btn"
+      onclick="checkStatus()"
+    >
+
       🔍 Status देखें
+
     </button>
 
-    <div class="result" id="result">
 
-      <strong>Application Number:</strong>
-      <span id="displayNumber"></span>
+    <!-- RESULT -->
 
-      <div class="stage">
+    <div
+      class="result"
+      id="result"
+    >
+
+      <div class="result-title">
+        आवेदन विवरण
+      </div>
+
+
+      <div class="info-row">
+
+        <strong>
+          प्रकार:
+        </strong>
+
+        <span id="displayType"></span>
+
+      </div>
+
+
+      <div class="info-row">
+
+        <strong>
+          वर्ष:
+        </strong>
+
+        <span id="displayYear"></span>
+
+      </div>
+
+
+      <div class="info-row">
+
+        <strong>
+          Case / Application No.:
+        </strong>
+
+        <span id="displayNumber"></span>
+
+      </div>
+
+
+      <!-- STATUS FLOW -->
+
+      <div
+        class="stage"
+        id="stage1"
+      >
+
         ✅ आवेदन जमा
+
       </div>
 
-      <div class="stage">
+
+      <div
+        class="stage"
+        id="stage2"
+      >
+
         🟡 RSI
+
       </div>
 
-      <div class="stage">
+
+      <div
+        class="stage"
+        id="stage3"
+      >
+
         ⏳ CI
+
       </div>
 
-      <div class="stage">
+
+      <div
+        class="stage"
+        id="stage4"
+      >
+
         ⏳ CO
+
       </div>
 
-      <div style="margin-top:12px; font-weight:bold;">
+
+      <div
+        class="current-status"
+        id="currentStatus"
+      >
+
         📍 वर्तमान स्थिति: RSI के पास लंबित
+
       </div>
+
 
     </div>
 
   </div>
+
 </div>
+
 
 <script>
 
+/* CURRENT APPLICATION TYPE */
+
 let selectedType = "";
 
+
+/* HOME OPTION MESSAGES */
+
 function showMessage(type) {
+
   if (type === "register") {
-    alert("रजिस्टर-II सेवा जल्द उपलब्ध होगी।");
+
+    alert(
+      "रजिस्टर-II सेवा जल्द उपलब्ध होगी।"
+    );
+
   }
+
 
   if (type === "khata") {
-    alert("खाता एवं रजिस्टर-II सेवा जल्द उपलब्ध होगी।");
+
+    alert(
+      "खाता एवं रजिस्टर-II सेवा जल्द उपलब्ध होगी।"
+    );
+
   }
+
 
   if (type === "online") {
-    alert("ऑनलाइन आवेदन सेवा जल्द उपलब्ध होगी।");
+
+    alert(
+      "ऑनलाइन आवेदन सेवा जल्द उपलब्ध होगी।"
+    );
+
   }
+
 }
+
+
+/* OPEN APPLICATION STATUS */
 
 function openStatus() {
-  document.getElementById("statusModal").style.display = "flex";
+
+  document.getElementById(
+    "statusModal"
+  ).style.display = "flex";
+
 }
 
+
+/* CLOSE STATUS MENU */
+
 function closeModal() {
-  document.getElementById("statusModal").style.display = "none";
+
+  document.getElementById(
+    "statusModal"
+  ).style.display = "none";
+
 }
+
+
+/* OPEN MUTATION / SUDHAR */
 
 function openApplication(type) {
 
   selectedType = type;
 
-  document.getElementById("statusModal").style.display = "none";
+  document.getElementById(
+    "statusModal"
+  ).style.display = "none";
 
-  document.getElementById("applicationModal").style.display = "flex";
+  document.getElementById(
+    "applicationModal"
+  ).style.display = "flex";
 
-  document.getElementById("applicationTitle").innerText =
+  document.getElementById(
+    "applicationTitle"
+  ).innerText =
     type + " आवेदन स्थिति";
 
-  document.getElementById("result").style.display = "none";
-  document.getElementById("applicationNumber").value = "";
+  document.getElementById(
+    "result"
+  ).style.display = "none";
+
+  document.getElementById(
+    "applicationYear"
+  ).value = "";
+
+  document.getElementById(
+    "applicationNumber"
+  ).value = "";
+
 }
 
+
+/* CLOSE APPLICATION */
+
 function closeApplication() {
-  document.getElementById("applicationModal").style.display = "none";
+
+  document.getElementById(
+    "applicationModal"
+  ).style.display = "none";
+
 }
+
+
+/* CHECK STATUS */
 
 function checkStatus() {
 
-  let number =
-    document.getElementById("applicationNumber").value.trim();
+  let year =
+    document.getElementById(
+      "applicationYear"
+    ).value;
 
-  if (number === "") {
-    alert("कृपया Application / Case Number डालें।");
+
+  let number =
+    document.getElementById(
+      "applicationNumber"
+    ).value.trim();
+
+
+  /* YEAR CHECK */
+
+  if (year === "") {
+
+    alert(
+      "कृपया वर्ष चुनें।"
+    );
+
     return;
+
   }
 
-  document.getElementById("displayNumber").innerText =
+
+  /* CASE NUMBER CHECK */
+
+  if (number === "") {
+
+    alert(
+      "कृपया Application / Case Number डालें।"
+    );
+
+    return;
+
+  }
+
+
+  /* SHOW DETAILS */
+
+  document.getElementById(
+    "displayType"
+  ).innerText =
+    " " + selectedType;
+
+
+  document.getElementById(
+    "displayYear"
+  ).innerText =
+    " " + year;
+
+
+  document.getElementById(
+    "displayNumber"
+  ).innerText =
     " " + number;
 
-  document.getElementById("result").style.display = "block";
+
+  /* SHOW RESULT */
+
+  document.getElementById(
+    "result"
+  ).style.display = "block";
+
+
+  /*
+    DEMO STATUS
+
+    अभी यह केवल interface/demo है।
+    बाद में authorized/public data source
+    मिलने पर real status connection लगाया जाएगा।
+  */
+
+  if (selectedType === "Sudhar") {
+
+    document.getElementById(
+      "stage2"
+    ).innerHTML =
+      "🟡 RSI";
+
+
+    document.getElementById(
+      "stage3"
+    ).innerHTML =
+      "⏳ CI";
+
+
+    document.getElementById(
+      "stage4"
+    ).innerHTML =
+      "⏳ CO";
+
+
+    document.getElementById(
+      "currentStatus"
+    ).innerHTML =
+      "📍 वर्तमान स्थिति: RSI के पास लंबित";
+
+  }
+
+
+  if (selectedType === "Mutation") {
+
+    document.getElementById(
+      "stage2"
+    ).innerHTML =
+      "🟡 RSI";
+
+
+    document.getElementById(
+      "stage3"
+    ).innerHTML =
+      "⏳ CI";
+
+
+    document.getElementById(
+      "stage4"
+    ).innerHTML =
+      "⏳ CO";
+
+
+    document.getElementById(
+      "currentStatus"
+    ).innerHTML =
+      "📍 वर्तमान स्थिति: आवेदन प्रक्रिया में";
+
+  }
+
 }
+
+
+/* CLOSE MODALS WHEN CLICKING OUTSIDE */
+
+window.onclick = function(event) {
+
+  let statusModal =
+    document.getElementById(
+      "statusModal"
+    );
+
+  let applicationModal =
+    document.getElementById(
+      "applicationModal"
+    );
+
+
+  if (event.target === statusModal) {
+
+    statusModal.style.display = "none";
+
+  }
+
+
+  if (event.target === applicationModal) {
+
+    applicationModal.style.display = "none";
+
+  }
+
+};
 
 </script>
 
