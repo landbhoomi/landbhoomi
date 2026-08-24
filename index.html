@@ -1,1 +1,399 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LandBhoomi - Jharkhand Land Records</title>
 
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f4f7f5;
+  color: #17351f;
+}
+
+.header {
+  background: #176b35;
+  color: white;
+  padding: 22px 15px;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 30px;
+  margin-bottom: 6px;
+}
+
+.header p {
+  font-size: 14px;
+}
+
+.notice {
+  background: #fff3cd;
+  color: #664d03;
+  padding: 12px;
+  text-align: center;
+  font-size: 13px;
+  border-bottom: 1px solid #e5d18b;
+}
+
+.container {
+  max-width: 900px;
+  margin: 25px auto;
+  padding: 0 15px;
+}
+
+.welcome {
+  background: white;
+  padding: 22px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.welcome h2 {
+  color: #176b35;
+  margin-bottom: 8px;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.option {
+  background: white;
+  border: 1px solid #d9e3dc;
+  border-radius: 12px;
+  padding: 22px 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.option:hover {
+  transform: translateY(-2px);
+  border-color: #176b35;
+}
+
+.icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.option h3 {
+  color: #176b35;
+  margin-bottom: 7px;
+}
+
+.option p {
+  color: #666;
+  font-size: 13px;
+}
+
+.footer {
+  margin-top: 35px;
+  background: #17351f;
+  color: white;
+  text-align: center;
+  padding: 20px 15px;
+  font-size: 13px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.modal-box {
+  background: white;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 14px;
+  padding: 25px;
+}
+
+.modal-box h2 {
+  color: #176b35;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.close {
+  float: right;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.status-buttons {
+  display: grid;
+  gap: 12px;
+}
+
+.status-btn {
+  padding: 16px;
+  border: none;
+  border-radius: 9px;
+  background: #176b35;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.status-btn:hover {
+  background: #105326;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin: 12px 0;
+  font-size: 16px;
+}
+
+.search-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: #176b35;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.result {
+  margin-top: 18px;
+  background: #f1f8f3;
+  border-radius: 10px;
+  padding: 15px;
+  display: none;
+}
+
+.stage {
+  padding: 10px;
+  margin: 7px 0;
+  background: white;
+  border-radius: 7px;
+  border-left: 4px solid #176b35;
+}
+
+@media (max-width: 600px) {
+  .options {
+    grid-template-columns: 1fr;
+  }
+
+  .header h1 {
+    font-size: 26px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <h1>🌿 LandBhoomi</h1>
+  <p>Jharkhand Land Records & Application Status</p>
+</header>
+
+<div class="notice">
+  यह पोर्टल LandBhoomi है। यह सरकारी वेबसाइट नहीं है।
+</div>
+
+<main class="container">
+
+  <section class="welcome">
+    <h2>स्वागत है</h2>
+    <p>भूमि रिकॉर्ड एवं आवेदन संबंधी सेवाओं के लिए नीचे दिए गए विकल्प चुनें।</p>
+  </section>
+
+  <section class="options">
+
+    <div class="option" onclick="showMessage('register')">
+      <div class="icon">👁️</div>
+      <h3>रजिस्टर-II देखें</h3>
+      <p>रजिस्टर-II से संबंधित जानकारी</p>
+    </div>
+
+    <div class="option" onclick="showMessage('khata')">
+      <div class="icon">📋</div>
+      <h3>खाता एवं रजिस्टर-II देखें</h3>
+      <p>खाता एवं रजिस्टर-II जानकारी</p>
+    </div>
+
+    <div class="option" onclick="showMessage('online')">
+      <div class="icon">📝</div>
+      <h3>ऑनलाइन आवेदन</h3>
+      <p>ऑनलाइन आवेदन से संबंधित सुविधा</p>
+    </div>
+
+    <div class="option" onclick="openStatus()">
+      <div class="icon">📄</div>
+      <h3>आवेदन स्थिति</h3>
+      <p>Mutation एवं Sudhar आवेदन की स्थिति</p>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>© 2026 LandBhoomi</p>
+  <p>Land Records & Application Status Portal</p>
+</footer>
+
+<!-- Status Modal -->
+<div class="modal" id="statusModal">
+
+  <div class="modal-box">
+
+    <span class="close" onclick="closeModal()">×</span>
+
+    <h2>आवेदन स्थिति</h2>
+
+    <div class="status-buttons">
+
+      <button class="status-btn" onclick="openApplication('Mutation')">
+        🔄 Mutation
+      </button>
+
+      <button class="status-btn" onclick="openApplication('Sudhar')">
+        📝 Sudhar
+      </button>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- Application Modal -->
+<div class="modal" id="applicationModal">
+
+  <div class="modal-box">
+
+    <span class="close" onclick="closeApplication()">×</span>
+
+    <h2 id="applicationTitle">Application Status</h2>
+
+    <input
+      type="text"
+      id="applicationNumber"
+      placeholder="Application / Case Number डालें"
+    >
+
+    <button class="search-btn" onclick="checkStatus()">
+      🔍 Status देखें
+    </button>
+
+    <div class="result" id="result">
+
+      <strong>Application Number:</strong>
+      <span id="displayNumber"></span>
+
+      <div class="stage">
+        ✅ आवेदन जमा
+      </div>
+
+      <div class="stage">
+        🟡 RSI
+      </div>
+
+      <div class="stage">
+        ⏳ CI
+      </div>
+
+      <div class="stage">
+        ⏳ CO
+      </div>
+
+      <div style="margin-top:12px; font-weight:bold;">
+        📍 वर्तमान स्थिति: RSI के पास लंबित
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+
+let selectedType = "";
+
+function showMessage(type) {
+  if (type === "register") {
+    alert("रजिस्टर-II सेवा जल्द उपलब्ध होगी।");
+  }
+
+  if (type === "khata") {
+    alert("खाता एवं रजिस्टर-II सेवा जल्द उपलब्ध होगी।");
+  }
+
+  if (type === "online") {
+    alert("ऑनलाइन आवेदन सेवा जल्द उपलब्ध होगी।");
+  }
+}
+
+function openStatus() {
+  document.getElementById("statusModal").style.display = "flex";
+}
+
+function closeModal() {
+  document.getElementById("statusModal").style.display = "none";
+}
+
+function openApplication(type) {
+
+  selectedType = type;
+
+  document.getElementById("statusModal").style.display = "none";
+
+  document.getElementById("applicationModal").style.display = "flex";
+
+  document.getElementById("applicationTitle").innerText =
+    type + " आवेदन स्थिति";
+
+  document.getElementById("result").style.display = "none";
+  document.getElementById("applicationNumber").value = "";
+}
+
+function closeApplication() {
+  document.getElementById("applicationModal").style.display = "none";
+}
+
+function checkStatus() {
+
+  let number =
+    document.getElementById("applicationNumber").value.trim();
+
+  if (number === "") {
+    alert("कृपया Application / Case Number डालें।");
+    return;
+  }
+
+  document.getElementById("displayNumber").innerText =
+    " " + number;
+
+  document.getElementById("result").style.display = "block";
+}
+
+</script>
+
+</body>
+</html>
