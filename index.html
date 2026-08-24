@@ -717,31 +717,32 @@ function loadCircle(){
 
 
 function loadHalka(){
+function loadHalka(){
 
-let circle =
-document.getElementById("circle").value;
+  let circle =
+    document.getElementById("circle").value;
 
-let halka =
-document.getElementById("halka");
+  let halka =
+    document.getElementById("halka");
 
-halka.innerHTML =
-'<option value="">Please Select</option>';
+  halka.innerHTML =
+    '<option value="">Please Select</option>';
 
-if(circle){
+  if(circle){
 
-halka.innerHTML +=
-'<option>हल्का 01</option>';
+    halka.innerHTML += '<option value="2">हल्का 2</option>';
+    halka.innerHTML += '<option value="3">हल्का 3</option>';
+    halka.innerHTML += '<option value="4">हल्का 4</option>';
+    halka.innerHTML += '<option value="5">हल्का 5</option>';
+    halka.innerHTML += '<option value="6">हल्का 6</option>';
+    halka.innerHTML += '<option value="7">हल्का 7</option>';
+    halka.innerHTML += '<option value="8">हल्का 8</option>';
+    halka.innerHTML += '<option value="9">हल्का 9</option>';
 
-halka.innerHTML +=
-'<option>हल्का 02</option>';
+  }
 
-halka.innerHTML +=
-'<option>हल्का 03</option>';
-
-}
-
-document.getElementById("mauza").innerHTML =
-'<option value="">Please Select</option>';
+  document.getElementById("mauza").innerHTML =
+    '<option value="">Please Select</option>';
 
 }
 
