@@ -673,32 +673,45 @@ document.getElementById("landModal").style.display="none";
 
 /* DROPDOWNS */
 
-function loadCircle(){
+function loadCircle()function loadCircle(){
 
-let district =
-document.getElementById("district").value;
+  let district =
+    document.getElementById("district").value;
 
-let circle =
-document.getElementById("circle");
+  let circle =
+    document.getElementById("circle");
 
-circle.innerHTML =
-'<option value="">Please Select</option>';
+  circle.innerHTML =
+    '<option value="">Please Select</option>';
 
-if(district){
+  if(district === "Ranchi"){
 
-circle.innerHTML +=
-'<option>'+district+' Circle</option>';
+    circle.innerHTML += '<option value="Angara">Angara</option>';
+    circle.innerHTML += '<option value="Bero">Bero</option>';
+    circle.innerHTML += '<option value="Bundu">Bundu</option>';
+    circle.innerHTML += '<option value="Burmu">Burmu</option>';
+    circle.innerHTML += '<option value="Chanho">Chanho</option>';
+    circle.innerHTML += '<option value="Itki">Itki</option>';
+    circle.innerHTML += '<option value="Kanke">Kanke</option>';
+    circle.innerHTML += '<option value="Khelari">Khelari</option>';
+    circle.innerHTML += '<option value="Lapung">Lapung</option>';
+    circle.innerHTML += '<option value="Mandar">Mandar</option>';
+    circle.innerHTML += '<option value="Nagri">Nagri</option>';
+    circle.innerHTML += '<option value="Namkum">Namkum</option>';
+    circle.innerHTML += '<option value="Ormanjhi">Ormanjhi</option>';
+    circle.innerHTML += '<option value="Rahe">Rahe</option>';
+    circle.innerHTML += '<option value="Ratu">Ratu</option>';
+    circle.innerHTML += '<option value="Silli">Silli</option>';
+    circle.innerHTML += '<option value="Sonahatu">Sonahatu</option>';
+    circle.innerHTML += '<option value="Tamar">Tamar</option>';
+    circle.innerHTML += '<option value="Town">Town / Sahar</option>';
+  }
 
-circle.innerHTML +=
-'<option>'+district+' Rural</option>';
+  document.getElementById("halka").innerHTML =
+    '<option value="">Please Select</option>';
 
-}
-
-document.getElementById("halka").innerHTML =
-'<option value="">Please Select</option>';
-
-document.getElementById("mauza").innerHTML =
-'<option value="">Please Select</option>';
+  document.getElementById("mauza").innerHTML =
+    '<option value="">Please Select</option>';
 
 }
 
